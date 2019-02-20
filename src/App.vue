@@ -9,6 +9,9 @@
       <v-btn flat>
         <router-link to="/" exact>msg-api</router-link>
       </v-btn>
+      <v-btn flat>
+        <router-link to="/board" exact>게시판</router-link>
+      </v-btn>
     </v-toolbar>
 
     <v-content>
