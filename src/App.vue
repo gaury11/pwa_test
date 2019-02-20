@@ -12,6 +12,9 @@
       <v-btn flat>
         <router-link to="/board" exact>게시판</router-link>
       </v-btn>
+      <v-btn flat>
+        <router-link to="/board2" exact>게시판2</router-link>
+      </v-btn>
     </v-toolbar>
 
     <v-content>
