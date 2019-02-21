@@ -23,8 +23,7 @@
             </v-flex>
             <v-flex xs12>               
                 <tree-view :data="requestData" :options="{modifiable: false}" max-depth="4"></tree-view>
-            </v-flex>
-            
+            </v-flex>           
         </v-layout>
     </v-container>
     <v-container grid-list-md>
@@ -85,7 +84,7 @@ export default {
     getMsgApi: function(){
         console.log("getMsgApi")
         this.axios
-            .get('http://192.168.0.197:9090/apiTarget')
+            .get('http://localhost:9090/apiTarget')
             .then(response => {
                 console.log(response.data)
                 this.requestData = response.data
@@ -101,9 +100,17 @@ export default {
             })
     },
     sendMsgApi: function(){
+
         console.log('url : ' +  this.apiTargetInfo.targetUrl + 'ping')
         this.axios
-            .get('http://192.168.0.197:9090/api/ping')
+            //.get('http://localhost:9090/api/ping')
+            .post('http://localhost:9090/apiTarget/save', {
+                headers: {
+                    'Content-Type': 'application/json' 
+                },
+                targetName: 'test_name',
+                targetUrl: 'test_url'
+            })
             //.get(this.apiTargetInfo.targetUrl + 'ping')
             .then(response => {
                 console.log(response.data)
